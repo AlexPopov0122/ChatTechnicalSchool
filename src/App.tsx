@@ -12,10 +12,13 @@ function App() {
         <Provider store={store}>
         <HashRouter>
             <div className="App">
-                <img src={image} alt="background image"/>
-                <Link to='/chat'><button className={'chatButton'}>Чат студентов</button></Link>
+
                 <div>
                     <Routes>
+                        <Route path="*" element={<div>
+                            <img src={image} alt="background image"/>
+                            <Link to='/chat'><button className={'chatButton'}>Чат студентов</button></Link>
+                        </div>}/>
                         <Route path="/chat/*" element={<ChatPage/>}/>
                     </Routes>
                 </div>

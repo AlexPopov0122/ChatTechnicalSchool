@@ -3,17 +3,18 @@ import {TState} from "../redux/redux-store";
 import React, {useEffect, useRef, useState} from "react";
 import {ChatMessageAPIType} from "./ChatAPI";
 import {sendMessage, startMessagesListening, stopMessagesListening} from "./ChatReducer";
+import {Button, Flex} from "antd";
+import cl from "./ChatPage.module.css"
 
 const ChatPage: React.FC = () => {
-    return <div>
+    return <Flex vertical={false} justify={"center"} style={{margin: "30px 0"}}>
         <Chat/>
-    </div>
+    </Flex>
 }
 
 const Chat: React.FC = () => {
 
     const dispatch = useDispatch()
-
 
     const status = useSelector((state: TState) => state.chat.status)
 
@@ -56,7 +57,7 @@ const Messages: React.FC<{}> = ({}) => {
         }
     }, [messages])
 
-    return <div style={{height: '400px', overflowY: 'auto'}} onScroll={scrollHandler}>
+    return <div className={cl.mainBlock} style={{height: '700px', overflowY: 'auto'}} onScroll={scrollHandler}>
         {messages.map((m: any) => <Message key={m.id} message={m}/>)}
         <div ref={messagesAnchorRef}></div>
     </div>
@@ -64,12 +65,20 @@ const Messages: React.FC<{}> = ({}) => {
 
 
 const Message: React.FC<{ message: ChatMessageAPIType }> = React.memo( ({message}) => {
-    console.log("»»»Message")
-    return <div>
-        <img src={message.photo} style={{width: '30px'}}/> <b>{message.userName}</b>
-        <br/>
-        {message.message}
-        <hr/>
+
+    const avatarStyle: React.CSSProperties = {
+        width: '45px',
+        borderRadius: "50%",
+        color: "blue"
+    };
+
+    return <div style={{borderBottom: "1px solid #eeeeee"}}>
+        <Flex vertical={false} align={"center"} gap={"20px"} style={{margin: "15px"}}>
+            <img src={message.photo} style={avatarStyle}/> <span style={{color: "#0879b1", fontWeight: "bold"}}>{message.userName}</span>
+        </Flex>
+        <div style={{textAlign: "start",  margin: "20px 15px", fontSize: "14px"}}>
+            {message.message}
+        </div>
     </div>
 })
 
@@ -90,13 +99,11 @@ const AddMessageForm: React.FC<{}> = () => {
         setMessage('')
     }
 
-    return <div>
-        <div>
-            <textarea onChange={(e) => setMessage(e.currentTarget.value)} value={message}></textarea>нф
-        </div>
-        <div>
-            <button disabled={status !== 'ready'} onClick={sendMessageHandler}>Send</button>
-        </div>
+    return <div style={{ textAlign: "left"}}>
+        <span>
+        <textarea placeholder='Write your message' className={cl.textarea} onChange={(e) => setMessage(e.currentTarget.value)} value={message}></textarea>
+        <Button type={"primary"} className={cl.button} disabled={status !== 'ready'} onClick={sendMessageHandler}>Отправить</Button>
+        </span>
     </div>
 }
 
