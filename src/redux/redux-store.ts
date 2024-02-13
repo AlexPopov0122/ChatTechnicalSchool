@@ -1,4 +1,4 @@
-import chatReducer from "./Chat/ChatReducer";
+import chatReducer from "../Chat/ChatReducer";
 import {Action, configureStore, ThunkAction} from "@reduxjs/toolkit";
 
 const reducers = {

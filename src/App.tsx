@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import image from "./helpers/oldFon.png"
+import "./App.css"
+import ChatPage from "./Chat/ChatPage";
+import {HashRouter, Link, Route, Routes} from "react-router-dom";
+import {Provider} from "react-redux";
+import store from "./redux/redux-store";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Provider store={store}>
+        <HashRouter>
+            <div className="App">
+                <img src={image} alt="background image"/>
+                <Link to='/chat'><button className={'chatButton'}>Чат студентов</button></Link>
+                <div>
+                    <Routes>
+                        <Route path="/chat/*" element={<ChatPage/>}/>
+                    </Routes>
+                </div>
+            </div>
+        </HashRouter>
+        </Provider>
+    );
 }
 
 export default App;
