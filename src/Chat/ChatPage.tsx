@@ -5,6 +5,7 @@ import {ChatMessageAPIType} from "./ChatAPI";
 import {sendMessage, startMessagesListening, stopMessagesListening} from "./ChatReducer";
 import {Button, Flex} from "antd";
 import cl from "./ChatPage.module.css"
+import {NavLink, Outlet, redirect, useNavigate} from "react-router-dom";
 
 const ChatPage: React.FC = () => {
     return <Flex vertical={false} justify={"center"} style={{margin: "30px 0"}}>
@@ -104,6 +105,9 @@ const AddMessageForm: React.FC<{}> = () => {
         <textarea placeholder='Write your message' className={cl.textarea} onChange={(e) => setMessage(e.currentTarget.value)} value={message}></textarea>
         <Button type={"primary"} className={cl.button} disabled={status !== 'ready'} onClick={sendMessageHandler}>Отправить</Button>
         </span>
+        <div className={cl.backButton}>
+            <NavLink to={"/"}><Button type={"primary"}>Назад</Button></NavLink>
+        </div>
     </div>
 }
 
