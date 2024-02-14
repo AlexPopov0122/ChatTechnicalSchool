@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/ChatTechnicalSchool/static/css/main.e09bf4f3.css",
-    "main.js": "/ChatTechnicalSchool/static/js/main.607cd2f2.js",
+    "main.css": "/ChatTechnicalSchool/static/css/main.20341223.css",
+    "main.js": "/ChatTechnicalSchool/static/js/main.3fb71df0.js",
     "static/js/592.4523d8fe.chunk.js": "/ChatTechnicalSchool/static/js/592.4523d8fe.chunk.js",
     "static/media/oldFon.png": "/ChatTechnicalSchool/static/media/oldFon.ae8e84d51de8f5937284.png",
     "index.html": "/ChatTechnicalSchool/index.html",
-    "main.e09bf4f3.css.map": "/ChatTechnicalSchool/static/css/main.e09bf4f3.css.map",
-    "main.607cd2f2.js.map": "/ChatTechnicalSchool/static/js/main.607cd2f2.js.map",
+    "main.20341223.css.map": "/ChatTechnicalSchool/static/css/main.20341223.css.map",
+    "main.3fb71df0.js.map": "/ChatTechnicalSchool/static/js/main.3fb71df0.js.map",
     "592.4523d8fe.chunk.js.map": "/ChatTechnicalSchool/static/js/592.4523d8fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e09bf4f3.css",
-    "static/js/main.607cd2f2.js"
+    "static/css/main.20341223.css",
+    "static/js/main.3fb71df0.js"
   ]
 }
